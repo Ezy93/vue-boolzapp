@@ -1,20 +1,43 @@
-section.col-5 > div{
+section.col-5 > div.justify-content-between,
+div.input-group{
     background-color: #eaeaea;
 }
 
-div.my-icon-container i{
+.my-text-Lgrey{
     color: #b1b1b1;
 }
 
 .my-icon-container{
     width: 30%;
+    border-right: 2px solid #e0e0e0;
 }
 
 .my-user-avatar-img{
     width: 15%;
 }
 
-.my-user-avatar-img img{
-    width: 52px;
+.my-user-avatar-img img,
+.my-circle{
+    height: 50px;
+}
+
+.my-user-avatar-img img,
+.my-circle,
+div.input-group span{
+    width: 50px;
+}
+
+div.input-group span{
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    border: 1px solid #dcdee0;
+}
+
+.my-notification-switch{
+    background-color: #8edafc;
+}
+
+.my-notification-switch div i{
+    color: #8edafc;
 }
 
