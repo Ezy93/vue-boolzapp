@@ -92,3 +92,14 @@ i.fs-5{
     color: #6c808e;
 }
 
+.my-chat-body{
+    background-image: url(../img/default-background.jpg);
+}
+
+.my-send{
+    background-color: #d5f9ba;
+}
+
+.my-received{
+    background-color: white;
+}
