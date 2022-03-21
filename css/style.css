@@ -2,6 +2,17 @@ section.col-5 > div.justify-content-between,
 div.input-group{
     background-color: #eaeaea;
 }
+ul{
+    list-style-type: none;
+}
+
+ul li{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.my-hour{
+    font-size: .8rem;
+}
 
 .my-text-Lgrey{
     color: #b1b1b1;
@@ -14,6 +25,11 @@ div.input-group{
 
 .my-user-avatar-img{
     width: 15%;
+}
+
+.my-contact-avatar{
+    width: 70px;
+    height: 70px;
 }
 
 .my-user-avatar-img img,
