@@ -23,10 +23,10 @@
 <body>
 
     <main id="app">
-        <div class="container px-5 py-3">
-            <div class="row">
+        <div class="container px-5 py-3 h-100">
+            <div class="row h-100">
                 <!-- sezione che contiene la lista dei contatti e info sull'user -->
-                <section class="col-5">
+                <section class="col-5 px-0 bg-white">
                     <!-- div che contiene le info dell'user e comandi -->
                     <div class="d-flex justify-content-between">
 
@@ -75,7 +75,7 @@
 
                     <!-- lista delle chat  -->
                     <div>
-                        <ul class="py-2 px-0">
+                        <ul class="pt-2 px-0 mb-0">
                             <!-- ogni li contiene informazioni sulla chat corrispondente -->
                             <li class="d-flex justify-content-between px-2">
                                 <div class="d-flex">
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                <div class="my-text-Lgrey fw-bold my-hour"> 
+                                <div class="my-text-Lgrey fw-bold my-last-access"> 
                                     <p>12:00</p>
                                 </div>
                             </li>
@@ -99,8 +99,52 @@
                 </section>
 
                 <!-- sezione che contiene la chat aperta e i relativi messaggi -->
-                <section class="col-7">
-                    
+                <section class="col-7 ps-0 h-100">
+
+                    <!-- header della chat corrente -->
+                    <div class="d-flex justify-content-between">
+
+                        <div class="my-user-avatar-img ms-2 my-2 d-flex align-items-center">
+                            <img src="img/avatar-cont-one.jpg" alt="user avatar" class="rounded-circle">
+                            <div class="px-2">Michele</div>
+                        </div>
+
+                        <div class="d-flex justify-content-evenly my-icon-container align-items-center my-text-Lgrey">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-paperclip"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- corpo della chat corrente -->
+                    <div class="my-chat-body">
+                        <img src="img/default-background.jpg" alt="default-background" class="w-100 h-100 my-default-bg">
+                    </div>
+
+                    <!-- input peer scrivere nuovi messaggi -->
+                    <div class="d-flex my-input-container  align-items-center justify-content-evenly">
+
+                            <div>
+                                <i class="fa-regular fa-face-smile fs-5 "></i>
+                            </div>
+
+                            <div class="my-width">
+                                <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-microphone fs-5 "></i>
+                            </div>
+                        
+                    </div>
                 </section>
             </div>
         </div>

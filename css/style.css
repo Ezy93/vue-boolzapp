@@ -1,7 +1,18 @@
+body{
+    background-color: turquoise; /* da cambiare dopo */
+}
+
+main{
+    height: 97vh;
+    padding-top: 3vh;
+}
+
 section.col-5 > div.justify-content-between,
+section.col-7 > div.justify-content-between,
 div.input-group{
     background-color: #eaeaea;
 }
+
 ul{
     list-style-type: none;
 }
@@ -10,7 +21,7 @@ ul li{
     border-bottom: 1px solid #e0e0e0;
 }
 
-.my-hour{
+.my-last-access{
     font-size: .8rem;
 }
 
@@ -18,13 +29,16 @@ ul li{
     color: #b1b1b1;
 }
 
-.my-icon-container{
+section.col-5 .my-icon-container{
     width: 30%;
-    border-right: 2px solid #e0e0e0;
 }
 
-.my-user-avatar-img{
-    width: 15%;
+section.col-7 .my-icon-container{
+    width: 20%;
+}
+
+section.col-5 .my-icon-container{
+    border-right: 2px solid #e0e0e0;
 }
 
 .my-contact-avatar{
@@ -55,5 +69,26 @@ div.input-group span{
 
 .my-notification-switch div i{
     color: #8edafc;
+}
+
+.my-chat-body{
+    height: 80%;
+}
+
+.my-default-bg{
+    object-fit: cover;
+}
+
+.my-input-container{
+    height: 10.6%;
+    background-color: #f3eeea;
+}
+
+.my-width{
+    width: 80%;
+}
+
+i.fs-5{
+    color: #6c808e;
 }
 
