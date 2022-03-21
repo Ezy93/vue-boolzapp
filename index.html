@@ -75,15 +75,15 @@
 
                     <!-- lista delle chat  -->
                     <div>
-                        <ul class="pt-2 px-0 mb-0">
+                        <ul class="px-0 mb-0">
                             <!-- ogni li contiene informazioni sulla chat corrispondente -->
-                            <li class="d-flex justify-content-between px-2">
+                            <li class="d-flex justify-content-between px-2 pt-2" v-for="(element,index) in contacts">
                                 <div class="d-flex">
-                                    <div class="my-contact-avatar">
-                                        <img src="img/avatar_1.jpg" alt="avatar contatto" class="w-100">
+                                    <div class="my-contact-avatar ">
+                                        <img :src="`img/avatar${element.avatar}.jpg`" alt="avatar contatto" class="w-100 rounded-circle">
                                     </div>
                                     <div class="ps-2">
-                                        <h5 class=" my-0">Michele</h5>
+                                        <h5 class=" my-0">{{element.name}}</h5>
                                         <p class="my-text-Lgrey">ultimo messaggio inviato</p>
                                     </div>
                                 </div>
