@@ -1,0 +1,20 @@
+section.col-5 > div{
+    background-color: #eaeaea;
+}
+
+div.my-icon-container i{
+    color: #b1b1b1;
+}
+
+.my-icon-container{
+    width: 30%;
+}
+
+.my-user-avatar-img{
+    width: 15%;
+}
+
+.my-user-avatar-img img{
+    width: 52px;
+}
+

@@ -14,6 +14,9 @@
     <!-- Vue js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
+    <!-- custom style -->
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Vue boolzapp</title>
 </head>
 
@@ -25,12 +28,26 @@
                 <!-- sezione che contiene la lista dei contatti e info sull'user -->
                 <section class="col-5">
                     <!-- div che contiene le info dell'user e comandi -->
-                    <div class="d-flex">
+                    <div class="d-flex justify-content-between">
 
-                        <div>
-                            <img src="" alt="user avatar">
+                        <div class="my-user-avatar-img ms-1 my-2 d-flex align-items-center">
+                            <img src="img/user-avatar.png" alt="user avatar" class="rounded-circle">
+                            <div class="px-2">User</div>
                         </div>
-                        
+
+                        <div class="d-flex justify-content-evenly my-icon-container align-items-center">
+                            <div>
+                                <i class="fa-solid fa-circle-notch"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
 
                     </div>
 
