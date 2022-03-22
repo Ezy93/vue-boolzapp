@@ -104,9 +104,9 @@
                     <!-- header della chat corrente -->
                     <div class="d-flex justify-content-between">
 
-                        <div class="my-user-avatar-img ms-2 my-2 d-flex align-items-center">
-                            <img src="img/avatar_1.jpg" alt="user avatar" class="rounded-circle">
-                            <div class="px-2">Michele</div>
+                        <div class="my-user-avatar-img ms-2 my-2 d-flex align-items-center" v-for="(element,index) in contacts" v-if="(index===activeChat)">
+                            <img :src="`img/avatar${element.avatar}.jpg`" alt="user avatar" class="rounded-circle">
+                            <div class="px-2">{{element.name}}</div>
                         </div>
 
                         <div class="d-flex justify-content-evenly my-icon-container align-items-center my-text-Lgrey">
