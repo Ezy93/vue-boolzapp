@@ -129,8 +129,8 @@
                         <div class="container pt-3">
                             <!-- messaggio inviato -->
                             <div class="row d-flex justify-content-end me-5 pb-2" >
-                                <div class="col-5 my-send rounded-3 p-2 d-flex flex-column" v-for="({messages},index) in contacts">
-                                        <p class="mb-0" v-for="(element, i) in messages" v-if="(activeChat===i)">{{element.message}}</p> 
+                                <div class="col-5 my-send rounded-3 p-2 d-flex flex-column" v-for="({messages},index) in contacts" v-if="(activeChat === index)">
+                                        <p class="mb-0" v-for="(element, i) in messages" v-if="(activeChat!=='')">{{element.message}}</p> 
                                         <p class="mb-0 my-date-message my-text-Lgrey align-self-end fw-bold ">15:30</p>
                                 </div>
                             </div>
