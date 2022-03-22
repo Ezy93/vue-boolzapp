@@ -63,6 +63,10 @@ div.input-group span{
     width: 50px;
 }
 
+div.contact-list-container{
+    height: calc(100% - 66px - 66px - 45.6px);
+}
+
 div.input-group span{
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
@@ -86,7 +90,7 @@ div.input-group span{
 }
 
 .my-input-container{
-    height: 10.6%;
+    height: 10.2%;
     background-color: #f3eeea;
 }
 
