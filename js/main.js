@@ -3,6 +3,7 @@ const app = new Vue({
     
     data: {
         activeChat: 0,
+        userMessage: "",
         contacts: [
             {
                 name: 'Michele',
@@ -180,6 +181,24 @@ const app = new Vue({
             this.contacts[index].visible = !this.contacts[index].visible
             console.log(this.contacts[index].visible)
             
-        }
-    },
-})
+        },
+
+
+        /**
+         * funzione che salva la stringa inserita dall'utente in una variabile e la inserisce nella chat con l'indice passato come secondo argomento della funzione
+         * @param {String} userMessage 
+         * @param {Int} index 
+         */
+        sendMessage(userMessage , index){
+            if(userMessage.trim()!= ""){
+                this.contacts[index].messages.push({
+                    date: 'Ora',
+                    message: userMessage,
+                    status: 'sent'
+                },)
+                this.userMessage = "";
+                
+            }
+        },
+    }
+},)
