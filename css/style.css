@@ -106,6 +106,10 @@ i.fs-5{
     background-image: url(../img/default-background.jpg);
 }
 
+.active{
+    background-color: #e9ebeb;
+}
+
 .my-send{
     background-color: #d5f9ba;
 }

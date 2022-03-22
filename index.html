@@ -77,7 +77,7 @@
                     <div class="contact-list-container">
                         <ul class="px-0 mb-0">
                             <!-- ogni li contiene informazioni sulla chat corrispondente -->
-                            <li class="d-flex justify-content-between p-2" v-for="(element,index) in contacts">
+                            <li class="d-flex justify-content-between p-2"   v-for="(element,index) in contacts" @click="isActive(index)" >
                                 <div class="d-flex">
                                     <div class="my-contact-avatar ">
                                         <img :src="`img/avatar${element.avatar}.jpg`" alt="avatar contatto" class="w-100 rounded-circle">
@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
