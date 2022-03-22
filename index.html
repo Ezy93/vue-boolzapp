@@ -149,7 +149,7 @@
                             </div>
 
                             <div class="my-width" v-for="({messages},index) in contacts" v-if="(activeChat === index)">
-                                <input v-for="(element, i) in messages" v-if="(activeChat === i)" v-model="userMessage"  @keydown.enter="sendMessage(userMessage,index) , botAnswer(index)" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
+                                <input  v-if="(activeChat === index)" v-model="userMessage"  @keydown.enter="sendMessage(userMessage,index) , botAnswer(index)" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
 
                             <div>
