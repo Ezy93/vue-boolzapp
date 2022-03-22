@@ -170,9 +170,16 @@ const app = new Vue({
     },
 
     methods: {
+        /**
+         * funzione che cambia il valore della variabile activeChat e della proprietà "visible" dell'oggetto selezionato tramite l'index passato come argomento
+         * @param {Int} index  
+         */
         isActive(index){
-            this.activeChat = index
-            return this.activeChat
+            this.activeChat = index;
+            console.log(this.activeChat)
+            this.contacts[index].visible = !this.contacts[index].visible
+            console.log(this.contacts[index].visible)
+            
         }
     },
 })
