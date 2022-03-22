@@ -128,25 +128,13 @@
                     <div class="my-chat-body">
                         <div class="container pt-3">
                             <!-- messaggio inviato -->
-                            <div class="row d-flex justify-content-end me-5 pb-2">
-                                <div class="col-5 my-send rounded-3 p-2">
-                                    <div class="d-flex flex-column">
-                                        <p class="mb-0">Hai portato a spasso il cane?</p> 
-                                        <p class="mb-0 my-date-message my-text-Lgrey align-self-end fw-bold">15:30</p>
-                                    </div>
+                            <div class="row d-flex justify-content-end me-5 pb-2" >
+                                <div class="col-5 my-send rounded-3 p-2 d-flex flex-column" v-for="({messages},index) in contacts">
+                                        <p class="mb-0" v-for="(element, i) in messages" v-if="(activeChat===i)">{{element.message}}</p> 
+                                        <p class="mb-0 my-date-message my-text-Lgrey align-self-end fw-bold ">15:30</p>
                                 </div>
                             </div>
-
-                            <!-- messaggio ricevuto -->
-                            <div class="row d-flex justify-content-start ms-5 pb-2">
-                                <div class="col-5 my-received rounded-3 p-2">
-                                    <div class="d-flex flex-column">
-                                        <p class="mb-0">Hai portato a spasso il cane?</p> 
-                                        <p class="mb-0 my-date-message my-text-Lgrey align-self-end fw-bold">15:30</p>
-                                    </div>
-                                </div>
-                            </div>
-
+                            
                         </div>
                     </div>
 
