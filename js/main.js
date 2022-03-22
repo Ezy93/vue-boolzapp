@@ -4,6 +4,7 @@ const app = new Vue({
     data: {
         activeChat: 0,
         userMessage: "",
+        
         contacts: [
             {
                 name: 'Michele',
@@ -215,5 +216,8 @@ const app = new Vue({
 
             },1000)
         },
+
+        
     }
 },)
+
