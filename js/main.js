@@ -200,5 +200,20 @@ const app = new Vue({
                 
             }
         },
+
+        /**
+         * funzione che risponde con "OK!!!!!!" dopo 1 secondo da quando l'utente inserisce il messaggio
+         * @param {Int} index 
+         */
+        botAnswer(index){
+            setTimeout(()=>{
+                this.contacts[index].messages.push({
+                    date: 'Ora',
+                    message: "OK!!!!!",
+                    status: 'received'
+                })
+
+            },1000)
+        },
     }
 },)
