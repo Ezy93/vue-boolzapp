@@ -7,6 +7,7 @@ const app = new Vue({
         activeName:"Michele",
         userMessage: "",
         searchedContact: "",
+        lastMessageDate:"13/01/2023",
         contacts: [
             {
                 name: 'Michele',
@@ -182,6 +183,10 @@ const app = new Vue({
             this.activeChat = index;
             
         },
+        
+
+        
+
 
         /**
          * funzione che aggiunge alla chat attiva il messaggio scritto dall'utente
