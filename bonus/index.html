@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesom -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- bootstrap library -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- custom style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Vue boolzapp</title>
+</head>
+
+<body>
+
+    <main id="app">
+        <div class="container px-5 py-3 h-100">
+            <div class="row h-100">
+                <!-- sezione che contiene la lista dei contatti e info sull'user -->
+                <section class="col-5 px-0 bg-white h-100">
+                    <!-- div che contiene le info dell'user e comandi -->
+                    <div class="d-flex justify-content-between">
+
+                        <div class="my-user-avatar-img ms-1 my-2 d-flex align-items-center">
+                            <img src="img/user-avatar.png" alt="user avatar" class="rounded-circle">
+                            <div class="px-2">User</div>
+                        </div>
+
+                        <div class="d-flex justify-content-evenly my-icon-container align-items-center my-text-Lgrey">
+                            <div>
+                                <i class="fa-solid fa-circle-notch"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- casella nella quale poter attivare le notifiche desktop -->
+                    <div class="my-notification-switch d-flex py-2 px-3">
+
+                        <div class="d-flex align-items-center rounded-circle my-circle rounded-circle justify-content-center bg-white">
+                            <i class="fa-solid fa-bell-slash fs-5 "></i>
+                        </div>
+
+                        <div class="ms-2">
+                            <p class="mb-0">Ricevi notifiche di nuovi messaggi</p>
+                            <a href="" class="my-text-Lgrey">Attiva notifiche desktop</a>
+                        </div>
+
+                    </div>
+
+                    <!-- barra di ricerca per le chat -->
+                    <div class="input-group p-1" >
+                        <span class="input-group-search d-flex align-items-center justify-content-center bg-white" id="basic-addon1">
+                            <i class="fa-solid fa-magnifying-glass my-text-Lgrey"></i>
+                        </span>
+                        <input v-model="searchedContact"  :keydown="isSearched(contacts)"  type="search" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <!-- lista delle chat  -->
+                    <div class="contact-list-container">
+                        <ul class="px-0 mb-0">
+                            <!-- ogni li contiene informazioni sulla chat corrispondente -->
+                            <li class="d-flex justify-content-between p-2" v-if="(searchedContact === '' || element.visible === true)"   v-for="(element,index) in contacts" @click="isActive(index) , avatarActiveChat(contacts)" :class="{active: activeChat === index}">
+                                <div class="d-flex" >
+                                    <div class="my-contact-avatar ">
+                                        <img :src="`img/avatar${element.avatar}.jpg`" alt="avatar contatto" class="w-100 rounded-circle">
+                                    </div>
+                                    <div class="ps-2">
+                                        <h5 class=" my-0">{{element.name}}</h5>
+                                        <p class="my-text-Lgrey">ultimo messaggio inviato</p>
+                                    </div>
+                                </div>
+
+                                <div class="my-text-Lgrey fw-bold my-last-access"> 
+                                    <p>12:00</p>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </section>
+
+                <!-- sezione che contiene la chat aperta e i relativi messaggi -->
+                <section class="col-7 ps-0 h-100">
+
+                    <!-- header della chat corrente -->
+                    <div class="d-flex justify-content-between">
+                        
+                        <div class="my-user-avatar-img ms-2 my-2 d-flex align-items-center">
+                            <img :src="`img/avatar${activeAvatar}.jpg`" alt="user avatar" class="rounded-circle">
+                            <div class="px-2">{{activeName}}</div>
+                        </div>
+
+                        <div class="d-flex justify-content-evenly my-icon-container align-items-center my-text-Lgrey">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-paperclip"></i>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- corpo della chat corrente -->
+                    <div class="my-chat-body overflow-auto">
+                        <div class="container pt-3">
+                            <!-- messaggio inviato -->
+                            
+                                <div class="col-12 d-flex flex-column">
+                                    <div class=" rounded-3 p-2 mt-3 d-flex flex-column w-50" v-for="element in contacts[activeChat].messages" v-if="(activeChat!=='')" :class="(element.status === 'sent') ? ['my-send' , 'align-self-end' , 'me-5'] : ['my-received' , 'align-self-start' , 'ms-5']">
+                                        <p class="mb-0" >{{element.message}}</p> 
+                                        <p class="mb-0 my-date-message my-text-Lgrey align-self-end fw-bold ">{{element.date}}</p>
+                                    </div>
+                                        
+                                </div>
+                            
+                            
+                        </div>
+                    </div>
+
+                    <!-- input peer scrivere nuovi messaggi -->
+                    <div class="d-flex my-input-container  align-items-center justify-content-evenly">
+
+                            <div>
+                                <i class="fa-regular fa-face-smile fs-5 "></i>
+                            </div>
+
+                            <div class="my-width">
+                                <input v-model="userMessage"  @keydown.enter="sendMessage(userMessage,contacts) , botAnswer(contacts)" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-microphone fs-5 "></i>
+                            </div>
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
