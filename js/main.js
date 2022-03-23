@@ -178,7 +178,6 @@ const app = new Vue({
          */
         isActive(index){
             this.activeChat = index;
-            console.log(this.activeChat)
             
         },
 
@@ -215,10 +214,16 @@ const app = new Vue({
             },1000)
         },
 
-        isSearched(index){
-            if(!this.contacts[index].name.split("").includes(this.searchedContact.split(""))){
-                this.contacts[index].visible = false
-            }
+        isSearched(list){
+            list.forEach ((element) => {
+
+                if(!element.name.toLowerCase().includes(this.searchedContact.toLowerCase())){
+                    element.visible = false;
+                }else{
+                    element.visible = true;
+                }
+                
+            });
         }
     }
 },)
