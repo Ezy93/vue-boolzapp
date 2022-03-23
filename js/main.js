@@ -3,6 +3,8 @@ const app = new Vue({
     
     data: {
         activeChat: 0,
+        activeAvatar:"_1",
+        activeName:"Michele",
         userMessage: "",
         searchedContact: "",
         contacts: [
@@ -182,7 +184,7 @@ const app = new Vue({
         },
 
         /**
-         * 
+         * funzione che aggiunge alla chat attiva il messaggio scritto dall'utente
          * @param {String} userMessage 
          * @param {Object} list 
          */
@@ -224,6 +226,10 @@ const app = new Vue({
             });
         },
 
+        /**
+         * funzione che mostra nella lista contatti i contatti cercati dall'utente
+         * @param {Array} list 
+         */
         isSearched(list){
             list.forEach ((element) => {
 
@@ -233,6 +239,19 @@ const app = new Vue({
                     element.visible = true;
                 }
                 
+            });
+        },
+
+        /**
+         * funzione che mostra nel DOM l'avat e il nome dell'utente selezionato nella lista dei contatti
+         * @param {Array} list 
+         */
+        avatarActiveChat(list){
+            list.forEach((element, index) => {
+                if(index === this.activeChat){
+                    this.activeAvatar = element.avatar;
+                    this.activeName = element.name;
+                }
             });
         }
     }
