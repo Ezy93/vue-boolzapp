@@ -179,8 +179,6 @@ const app = new Vue({
         isActive(index){
             this.activeChat = index;
             console.log(this.activeChat)
-            this.contacts[index].visible = !this.contacts[index].visible
-            console.log(this.contacts[index].visible)
             
         },
 
