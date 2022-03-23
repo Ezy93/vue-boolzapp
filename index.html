@@ -103,7 +103,7 @@
 
                     <!-- header della chat corrente -->
                     <div class="d-flex justify-content-between">
-
+                        <!-- !DA SISTEMARE IL V-FOR FARE UN FOREACH NEL JS -->
                         <div class="my-user-avatar-img ms-2 my-2 d-flex align-items-center" v-for="(element,index) in contacts" v-if="(index===activeChat)">
                             <img :src="`img/avatar${element.avatar}.jpg`" alt="user avatar" class="rounded-circle">
                             <div class="px-2">{{element.name}}</div>
@@ -148,8 +148,8 @@
                                 <i class="fa-regular fa-face-smile fs-5 "></i>
                             </div>
 
-                            <div class="my-width" v-for="({messages},index) in contacts" v-if="(activeChat === index)">
-                                <input  v-if="(activeChat === index)" v-model="userMessage"  @keydown.enter="sendMessage(userMessage,index) , botAnswer(index)" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="my-width">
+                                <input v-model="userMessage"  @keydown.enter="sendMessage(userMessage,contacts) , botAnswer(contacts)" type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
 
                             <div>

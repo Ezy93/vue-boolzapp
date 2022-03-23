@@ -181,37 +181,47 @@ const app = new Vue({
             
         },
 
-
         /**
-         * funzione che salva la stringa inserita dall'utente in una variabile e la inserisce nella chat con l'indice passato come secondo argomento della funzione
+         * 
          * @param {String} userMessage 
-         * @param {Int} index 
+         * @param {Object} list 
          */
-        sendMessage(userMessage , index){
-            if(userMessage.trim()!= ""){
-                this.contacts[index].messages.push({
-                    date: 'Ora',
-                    message: userMessage,
-                    status: 'sent'
-                },)
-                this.userMessage = "";
+        sendMessage(userMessage , list){
+            list.forEach((element , index) => {
+                if(this.activeChat === index){
+                    if(userMessage.trim()!= ""){
+                        element.messages.push({
+                            date: 'Ora',
+                            message: userMessage,
+                            status: 'sent'
+                        },)
+                        this.userMessage = "";
+                        
+                    }
+                }
                 
-            }
+            });
         },
 
         /**
          * funzione che risponde con "OK!!!!!!" dopo 1 secondo da quando l'utente inserisce il messaggio
          * @param {Int} index 
          */
-        botAnswer(index){
-            setTimeout(()=>{
-                this.contacts[index].messages.push({
-                    date: 'Ora',
-                    message: "OK!!!!!",
-                    status: 'received'
-                })
+        botAnswer(list){
+            list.forEach((element , index )=> {
+                if(this.activeChat === index){
+                    setTimeout(()=>{
+                        element.messages.push({
+                            date: 'Ora',
+                            message: "OK!!!!!",
+                            status: 'received'
+                        })
+        
+                    },1000)
 
-            },1000)
+                }
+                
+            });
         },
 
         isSearched(list){
