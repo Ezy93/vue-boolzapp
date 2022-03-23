@@ -70,14 +70,14 @@
                         <span class="input-group-search d-flex align-items-center justify-content-center bg-white" id="basic-addon1">
                             <i class="fa-solid fa-magnifying-glass my-text-Lgrey"></i>
                         </span>
-                        <input type="search" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                        <input v-model="searchedContact" v-if="" :keydown="isSearched(index)" v-for=" (element ,index) in contacts" type="search" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
 
                     <!-- lista delle chat  -->
                     <div class="contact-list-container">
                         <ul class="px-0 mb-0">
                             <!-- ogni li contiene informazioni sulla chat corrispondente -->
-                            <li class="d-flex justify-content-between p-2"   v-for="(element,index) in contacts" @click="isActive(index)" :class="{active: activeChat === index}">
+                            <li class="d-flex justify-content-between p-2" v-if="(searchedContact === '' || element.visible === true)"   v-for="(element,index) in contacts" @click="isActive(index)" :class="{active: activeChat === index}">
                                 <div class="d-flex" >
                                     <div class="my-contact-avatar ">
                                         <img :src="`img/avatar${element.avatar}.jpg`" alt="avatar contatto" class="w-100 rounded-circle">

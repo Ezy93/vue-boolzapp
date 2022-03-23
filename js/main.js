@@ -4,7 +4,7 @@ const app = new Vue({
     data: {
         activeChat: 0,
         userMessage: "",
-        
+        searchedContact: "",
         contacts: [
             {
                 name: 'Michele',
@@ -215,7 +215,11 @@ const app = new Vue({
             },1000)
         },
 
-        
+        isSearched(index){
+            if(!this.contacts[index].name.split("").includes(this.searchedContact.split(""))){
+                this.contacts[index].visible = false
+            }
+        }
     }
 },)
 
